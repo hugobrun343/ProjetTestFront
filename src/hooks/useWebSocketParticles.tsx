@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Particle } from "../types/Particle";
+import { Particle } from "../types/particle";
 
 export const useWebSocketParticles = (url: string) => {
   const [particles, setParticles] = useState<Particle[]>([]);

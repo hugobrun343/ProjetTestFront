@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { useCanvasRenderer } from "../hooks/useCanvasRenderer";
-import { Particle } from "../types/Particle";
+import { Particle } from "../types/particle";
 
 interface ParticleCanvasProps {
   particles: Particle[];

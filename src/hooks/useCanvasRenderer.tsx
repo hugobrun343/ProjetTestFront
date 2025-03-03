@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Particle } from "../types/Particle";
+import { Particle } from "../types/particle";
 
 export const useCanvasRenderer = (
   canvasRef: React.RefObject<HTMLCanvasElement>,

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Particle } from "./types/Particle";
+import { Particle } from "./types/particle";
 
 interface ParticleState {
   particles: Particle[];
