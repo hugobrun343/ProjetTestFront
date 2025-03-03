@@ -7,8 +7,8 @@ interface ParticleCanvasProps {
 }
 
 const ParticleCanvas: React.FC<ParticleCanvasProps> = ({ particles }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
+  const canvasRef = useRef<HTMLCanvasElement>(null!);
+  
   useEffect(() => {
     const canvas = canvasRef.current;
     if (canvas) {
