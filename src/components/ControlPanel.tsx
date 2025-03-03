@@ -9,19 +9,28 @@ const ControlPanel = () => {
 
   const addParticles = useMutation({
     mutationFn: async (count: number) => {
-      const promises = Array.from({ length: count }, () => 
-        fetch(`${API_BASE_URL}/simulation/add`, {
+      const promises = Array.from({ length: count }, () => {
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = Math.random() * 40 + 10;
+        const x = radius * Math.cos(angle);
+        const y = radius * Math.sin(angle);
+
+        const baseSpeed = 40;
+        const vx = -y * baseSpeed / 20;
+        const vy = x * baseSpeed / 20;
+
+        return fetch(`${API_BASE_URL}/simulation/add`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            x: Math.random() * 100 - 50,
-            y: Math.random() * 100 - 50,
-            vx: Math.random() * 2 - 1,
-            vy: Math.random() * 2 - 1,
-            mass: Math.random() * 10 + 1
+            x,
+            y,
+            vx,
+            vy,
+            mass: 1
           })
-        })
-      );
+        });
+      });
 
       const responses = await Promise.all(promises);
       const failedResponses = responses.filter(r => !r.ok);

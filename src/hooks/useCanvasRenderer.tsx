@@ -16,16 +16,14 @@ export const useCanvasRenderer = (
       ctx.fillStyle = "black";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Calculer le centre du canvas
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
 
       particles.forEach(({ x, y }) => {
         ctx.beginPath();
         ctx.fillStyle = "white";
-        // Convertir les coordonnées pour centrer la simulation
-        const screenX = centerX + x * 5; // Facteur d'échelle de 5 pour mieux voir
-        const screenY = centerY - y * 5; // Y inversé car le canvas a Y vers le bas
+        const screenX = centerX + x * 5;
+        const screenY = centerY - y * 5;
         ctx.arc(screenX, screenY, 5, 0, 2 * Math.PI);
         ctx.fill();
         ctx.closePath();
