@@ -15,7 +15,7 @@ const ControlPanel = () => {
         const x = radius * Math.cos(angle);
         const y = radius * Math.sin(angle);
 
-        const baseSpeed = 40;
+        const baseSpeed = 75;
         const vx = -y * baseSpeed / 20;
         const vy = x * baseSpeed / 20;
 
