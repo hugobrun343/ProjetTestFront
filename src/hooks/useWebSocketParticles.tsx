@@ -13,7 +13,9 @@ export const useWebSocketParticles = (url: string) => {
       try {
         const data = JSON.parse(event.data);
         if (Array.isArray(data)) {
-          setParticles(data);
+          setParticles(prev => 
+            JSON.stringify(prev) === JSON.stringify(data) ? prev : data
+          );
         }
       } catch (error) {
       }
